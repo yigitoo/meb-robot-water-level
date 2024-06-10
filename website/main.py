@@ -26,22 +26,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-HTTP_TYPE = 'http'
-HOST = '0.0.0.0'
-PORT = 8080
-
 app.mount('/static', StaticFiles(directory='static'), name='static')
 templates = Jinja2Templates(directory='templates')
-
-@app.get('/static/index.js')
-async def index_js():
-    return FileResponse(
-        os.path.join(
-            os.getcwd() +
-            'static' + '/index.js'
-        )
-    )
 
 @app.post('/data')
 async def data_retrieving(request: Request):
