@@ -31,19 +31,19 @@ function getData() {
         liquidLevel.textContent = `SEVİYE: ${response.level}/1024`;
       }
     } else {
-      alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
+      console.error(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
     }
   };
 
   xhr.onprogress = function (event) {
     if (event.lengthComputable) {
     } else {
-      alert("Request failed");
+      console.error("Request failed");
     }
   };
 
   xhr.onerror = function () {
-    alert("Request failed");
+    console.error("Request failed");
   };
 }
 
